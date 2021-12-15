@@ -4,15 +4,16 @@ package com.example.retrofitkotlin.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.retrofitkotlin.api.QuoteApi
-import com.example.retrofitkotlin.models.QuoteList
+
+import com.example.retrofitkotlin.newmodels.PageResponse
 
 
 class QuoteRepository(private val quoteApi: QuoteApi) {
 
 
-    var quoteMutableData= MutableLiveData<QuoteList>()
+    var quoteMutableData= MutableLiveData<PageResponse>()
 
-    val quotes: LiveData<QuoteList>
+    val quotes: LiveData<PageResponse>
     get() = quoteMutableData
 
     suspend fun getQuotes(page: Int){
